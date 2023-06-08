@@ -1,0 +1,22 @@
+from django.db import models
+
+class Serie(models.Model):
+    CATEGORIES_CHOICES = {
+    'horror': 'Terror',
+    'comedy': 'Comedia',
+    'action': 'Acción',
+    'drama': 'Drama',
+    'adventure': 'Aventura',
+    'sci-fi': 'Ciencia Ficción',
+    'mystery': 'Misterio',
+    'fantasy': 'Fantasia',
+    'romance': 'Romance',
+    'Family': 'Familiar',
+    'Suspence': 'Suspenso',
+}
+
+    name = models.CharField(max_length=100)
+    release_date = models.DateField()
+    rating = models.IntegerField(default=0)
+    category = models.CharField(max_length=10, choices=CATEGORIES_CHOICES.items())
+
